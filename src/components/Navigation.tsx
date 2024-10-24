@@ -1,6 +1,14 @@
 "use client";
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect, useState } from "react";
+import NavigationLink from "./NavigationLink";
+import {
+  ChartBarIcon,
+  ChartPieIcon,
+  DocumentCheckIcon,
+  Square2StackIcon,
+  UsersIcon,
+} from "@heroicons/react/24/outline";
 
 const containerVariants = {
   close: {
@@ -66,6 +74,23 @@ const Navigation = () => {
             />
           </svg>
         </button>
+      </div>
+      <div className="flex flex-col gap-5">
+        <NavigationLink name="Dashboard">
+          <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></ChartBarIcon>
+        </NavigationLink>
+        <NavigationLink name="Projects">
+          <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></Square2StackIcon>
+        </NavigationLink>
+        <NavigationLink name="Tasks">
+          <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></DocumentCheckIcon>
+        </NavigationLink>
+        <NavigationLink name="Reporting">
+          <ChartPieIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></ChartPieIcon>
+        </NavigationLink>
+        <NavigationLink name="Users">
+          <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></UsersIcon>
+        </NavigationLink>
       </div>
     </motion.nav>
   );
