@@ -9,6 +9,7 @@ import {
   Square2StackIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
+import ProjectLink from "./ProjectLink";
 
 const containerVariants = {
   close: {
@@ -31,6 +32,10 @@ const containerVariants = {
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
+
+  //Use selected project to conditionally display something
+  console.log(selectedProject);
 
   const containerControls = useAnimationControls();
 
@@ -77,20 +82,37 @@ const Navigation = () => {
       </div>
       <div className="flex flex-col gap-5">
         <NavigationLink name="Dashboard">
-          <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></ChartBarIcon>
+          <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-7 w-7"></ChartBarIcon>
         </NavigationLink>
         <NavigationLink name="Projects">
-          <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></Square2StackIcon>
+          <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-7 w-7"></Square2StackIcon>
         </NavigationLink>
         <NavigationLink name="Tasks">
-          <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></DocumentCheckIcon>
+          <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-7 w-7"></DocumentCheckIcon>
         </NavigationLink>
         <NavigationLink name="Reporting">
-          <ChartPieIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></ChartPieIcon>
+          <ChartPieIcon className="stroke-inherit stroke-[0.75] min-w-7 w-7"></ChartPieIcon>
         </NavigationLink>
         <NavigationLink name="Users">
-          <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8"></UsersIcon>
+          <UsersIcon className="stroke-inherit stroke-[0.75] min-w-7 w-7"></UsersIcon>
         </NavigationLink>
+      </div>
+      <div className="flex flex-col gap-5">
+        <ProjectLink
+          name="Virtual Reality"
+          setSelectedProject={setSelectedProject}
+        >
+          <div className="min-w-4 mx-2 border-pink-600 border rounded-full aspect-square bg-pink-700"></div>
+        </ProjectLink>
+        <ProjectLink name="Apple" setSelectedProject={setSelectedProject}>
+          <div className="min-w-4 mx-2 yellow-pink-600 border rounded-full aspect-square bg-yellow-700"></div>
+        </ProjectLink>
+        <ProjectLink
+          name="Soem proejct"
+          setSelectedProject={setSelectedProject}
+        >
+          <div className="min-w-4 mx-2 border-green-600 border rounded-full aspect-square bg-green-700"></div>
+        </ProjectLink>
       </div>
     </motion.nav>
   );
